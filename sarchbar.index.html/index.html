@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar - NEVOX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Search Header -->
+        <header class="header">
+            <div class="logo">NEVOX</div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search posts, users, hashtags...">
+                <button id="searchBtn">🔍</button>
+                <div class="search-filters">
+                    <select id="filterSelect">
+                        <option value="all">All</option>
+                        <option value="posts">Posts</option>
+                        <option value="users">Users</option>
+                        <option value="tags">Hashtags</option>
+                    </select>
+                </div>
+            </div>
+            <div class="user-menu">
+                <button class="notification-btn">🔔</button>
+                <button class="profile-btn">👤</button>
+            </div>
+        </header>
+
+        <!-- Posts Container -->
+        <div class="posts-container" id="postsContainer">
+            <!-- Posts will be dynamically added here -->
+        </div>
+
+        <!-- Search Results Info -->
+        <div class="search-info" id="searchInfo">
+            <p>Showing all posts. Type to search...</p>
+        </div>
+    </div>
+
+    <!-- Posts Data (Usually from database) -->
+    <script>
+        const postsData = [
+            {
+                id: 1,
+                title: "Welcome to NEVOX Ecosystem! 🎉",
+                content: "Welcome to NEVOX - the future of social networking!",
+                author: "NEVOX Team",
+                time: "Just now",
+                likes: 150,
+                tags: ["welcome", "introduction"]
+            },
+            {
+                id: 2,
+                title: "AI Features Explained 🤖",
+                content: "Discover our powerful AI features...",
+                author: "AI Department",
+                time: "1 day ago",
+                likes: 320,
+                tags: ["ai", "features", "technology"]
+            },
+            {
+                id: 3,
+                title: "How to Earn Points 🏆",
+                content: "Earn points by creating posts, liking content...",
+                author: "Rewards System",
+                time: "2 days ago",
+                likes: 210,
+                tags: ["points", "rewards", "guide"]
+            },
+            {
+                id: 4,
+                title: "New Update Released! 🚀",
+                content: "We've just released version 2.0 with new features...",
+                author: "Dev Team",
+                time: "3 days ago",
+                likes: 89,
+                tags: ["update", "news", "release"]
+            }
+        ];
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
