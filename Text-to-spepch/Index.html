@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-volume-up"></i> Text to Speech Converter</h1>
+        
+        <div class="text-area">
+            <textarea id="textInput" placeholder="এখানে আপনার টেক্সট লিখুন...">Hello! Welcome to Text to Speech Converter. This is a demonstration of how text can be converted into speech using JavaScript.</textarea>
+            <div class="char-count">
+                Characters: <span id="charCount">0</span>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="voice-controls">
+                <div class="control-group">
+                    <label for="voiceSelect"><i class="fas fa-user"></i> Voice:</label>
+                    <select id="voiceSelect">
+                        <option value="">Loading voices...</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rate"><i class="fas fa-tachometer-alt"></i> Rate:</label>
+                    <input type="range" id="rate" min="0.5" max="2" step="0.1" value="1">
+                    <span id="rateValue">1</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="pitch"><i class="fas fa-wave-square"></i> Pitch:</label>
+                    <input type="range" id="pitch" min="0.5" max="2" step="0.1" value="1">
+                    <span id="pitchValue">1</span>
+                </div>
+
+                <div class="control-group">
+                    <label for="volume"><i class="fas fa-volume-up"></i> Volume:</label>
+                    <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+                    <span id="volumeValue">1</span>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="speakBtn" class="btn speak">
+                    <i class="fas fa-play"></i> Speak
+                </button>
+                <button id="pauseBtn" class="btn pause" disabled>
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button id="resumeBtn" class="btn resume" disabled>
+                    <i class="fas fa-play"></i> Resume
+                </button>
+                <button id="stopBtn" class="btn stop" disabled>
+                    <i class="fas fa-stop"></i> Stop
+                </button>
+                <button id="clearBtn" class="btn clear">
+                    <i class="fas fa-trash"></i> Clear
+                </button>
+            </div>
+
+            <div class="sample-texts">
+                <h3><i class="fas fa-lightbulb"></i> Sample Texts:</h3>
+                <div class="samples">
+                    <button class="sample-btn" data-text="Hello, how are you today?">Greeting</button>
+                    <button class="sample-btn" data-text="The weather is beautiful today.">Weather</button>
+                    <button class="sample-btn" data-text="This is a text to speech demonstration.">Demo</button>
+                    <button class="sample-btn" data-text="Welcome to our application. Have a nice day!">Welcome</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status">
+            <p id="statusMessage">Ready to convert text to speech</p>
+            <div class="progress-container">
+                <div id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
