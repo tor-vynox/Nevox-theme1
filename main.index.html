@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEVOX Ecosystem | Real Platform</title>
+    
+    <!-- ==================== CDN LINKS ==================== -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome 6.6.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- Animate.css 4.1.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" 
+          integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" 
+          integrity="sha512-/k658G6RcP8fBmgb9T0veZGVZQe8lM2Uq+xq6cZbZ6Q3fLqY1i3mD5+R1eIq+5WxaTQlMlw4Hhjo6P8oFg0Kow==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Highlight.js Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" 
+          integrity="sha512-rOjolG/7iMJBejmkJvq/8e6eJf6XqCHdw5tVx4JmNcZCjrVixh1x8oFcOqcdDsHckWKh0eOObapQkiYh5rqj5Q==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- NEVOX AutoConfig CSS (Your custom CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/nevoxtheme/autoconfig@main/autoconfig.min.css">
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- ==================== META TAGS ==================== -->
+    <meta name="description" content="NEVOX Ecosystem - Advanced social platform with AI integration, real-time media sharing, and intelligent features">
+    <meta name="keywords" content="NEVOX, social platform, AI assistant, media sharing, community, real-time">
+    <meta name="author" content="NEVOX Team">
+    <meta property="og:title" content="NEVOX Ecosystem | Next Generation Social Platform">
+    <meta property="og:description" content="Experience the future of social interaction with AI-powered features and seamless media integration">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80">
+    <meta property="og:url" content="https://nevox-platform.vercel.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NEVOX Ecosystem">
+    <meta name="twitter:description" content="Next generation social platform with AI integration">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+</head>
+
+<body class="nvx-body">
+    <!-- ==================== LOADING SCREEN ==================== -->
+    <div id="loadingScreen" class="nvx-loading-screen">
+        <div class="nvx-loader">
+            <div class="nvx-spinner">
+                <div class="nvx-spinner-inner"></div>
+            </div>
+            <div class="nvx-loading-text">
+                <h3>NEVOX</h3>
+                <p>Initializing Ecosystem...</p>
+                <div class="nvx-progress">
+                    <div class="nvx-progress-bar" id="loadingProgress"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="nvx-header" id="mainHeader">
+        <div class="nvx-header-container">
+            <!-- Left: Logo & Menu -->
+            <div class="nvx-header-left">
+                <button class="nvx-menu-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nvx-logo" onclick="window.location.reload()">
+                    <i class="fas fa-bolt"></i>
+                    <span class="logo-text">NEVOX</span>
+                    <span class="logo-badge">BETA</span>
+                </div>
+            </div>
+
+            <!-- Center: Search -->
+            <div class="nvx-header-center">
+                <div class="nvx-search-container">
+                    <div class="nvx-search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" 
+                               id="globalSearch" 
+                               placeholder="Search posts, users, topics..."
+                               aria-label="Search"
+                               autocomplete="off">
+                        <div class="nvx-search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                    <button class="nvx-search-btn" onclick="performSearch()" aria-label="Search">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: User Panel -->
+            <div class="nvx-header-right">
+                <!-- Language Selector -->
+                <div class="nvx-language-selector">
+                    <div id="google_translate_element"></div>
+                    <div class="language-dropdown">
+                        <button class="lang-btn" onclick="changeLanguage('en')">EN</button>
+                        <button class="lang-btn" onclick="changeLanguage('bn')">BN</button>
+                        <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="nvx-notification-bell">
+                    <button class="notification-btn" onclick="toggleNotifications()" aria-label="Notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count" id="notificationCount">3</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h6>Notifications</h6>
+                            <button onclick="markAllAsRead()">Mark all as read</button>
+                        </div>
+                        <div class="notification-list" id="notificationList">
+                            <!-- Notifications will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Points -->
+                <div class="nvx-points-display">
+                    <i class="fas fa-coins"></i>
+                    <span id="userPoints">1,250</span>
+                    <span class="points-label">Points</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="nvx-theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                    <span class="theme-label">Theme</span>
+                </button>
+
+                <!-- User Avatar/Auth -->
+                <div class="nvx-user-section" id="userSection">
+                    <div class="nvx-auth-buttons" id="authButtons">
+                        <button class="nvx-btn btn-outline-primary" onclick="showLoginModal()">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <button class="nvx-btn btn-primary" onclick="showSignupModal()">
+                            <i class="fas fa-user-plus"></i> Sign Up
+                        </button>
+                    </div>
+                    
+                    <div class="nvx-user-avatar" id="userAvatar" style="display: none;">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=NEVOX&backgroundColor=b6e3f4" 
+                             alt="User Avatar"
+                             id="userAvatarImg"
+                             onclick="toggleUserMenu()">
+                        <div class="user-menu" id="userMenu">
+                            <div class="user-info">
+                                <strong id="userName">NEVOX User</strong>
+                                <small id="userEmail">user@nevoxtheme.com</small>
+                            </div>
+                            <hr>
+                            <a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Profile</a>
+                            <a href="#" onclick="showSettings()"><i class="fas fa-cog"></i> Settings</a>
+                            <a href="#" onclick="showDashboard()"><i class="fas fa-chart-line"></i> Dashboard</a>
+                            <hr>
+                            <a href="#" onclick="logout()" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="nvx-sidebar" id="mainSidebar">
+        <div class="nvx-sidebar-header">
+            <h3><i class="fas fa-compass"></i> Navigation</h3>
+            <button class="nvx-close-sidebar" onclick="toggleSidebar()" aria-label="Close sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="nvx-sidebar-nav">
+            <!-- Main Navigation -->
+            <div class="nvx-nav-section">
+                <h4 class="nvx-nav-title">MAIN</h4>
+                <a href="#" class="nvx-nav-item active" onclick="loadFeed('home')" data-page="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                    <span class="nav-badge">New</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="loadFeed('trending')" data-page="trending">
+                    <i class="fas fa-fire"></i>
+                    <span>Trending</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="loadFeed('recent')" data-page="recent">
+                    <i class="fas fa-clock"></i>
+                    <span>Recent</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showCreatePostModal()" data-page="create">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Create Post</span>
+                </a>
+            </div>
+
+            <!-- Media Section -->
+            <div class="nvx-nav-section">
+                <h4 class="nvx-nav-title">MEDIA</h4>
+                <a href="#" class="nvx-nav-item" onclick="loadMedia('videos')" data-page="videos">
+                    <i class="fas fa-video"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="loadMedia('images')" data-page="images">
+                    <i class="fas fa-image"></i>
+                    <span>Images</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="openMediaPlayer()" data-page="audio">
+                    <i class="fas fa-music"></i>
+                    <span>Audio</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="openMediaGallery()" data-page="gallery">
+                    <i class="fas fa-film"></i>
+                    <span>Gallery</span>
+                </a>
+            </div>
+
+            <!-- AI Tools -->
+            <div class="nvx-nav-section">
+                <h4 class="nvx-nav-title">AI TOOLS</h4>
+                <a href="#" class="nvx-nav-item" onclick="openAIAssistant()" data-page="ai-assistant">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                    <span class="nav-badge ai-badge">BETA</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="openAITools()" data-page="ai-tools">
+                    <i class="fas fa-magic"></i>
+                    <span>AI Tools</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="openAnalytics()" data-page="analytics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </div>
+
+            <!-- Community -->
+            <div class="nvx-nav-section">
+                <h4 class="nvx-nav-title">COMMUNITY</h4>
+                <a href="#" class="nvx-nav-item" onclick="loadCommunity()" data-page="community">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showGroups()" data-page="groups">
+                    <i class="fas fa-user-group"></i>
+                    <span>Groups</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showMessages()" data-page="messages">
+                    <i class="fas fa-envelope"></i>
+                    <span>Messages</span>
+                    <span class="nav-badge">5</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showEvents()" data-page="events">
+                    <i class="fas fa-calendar"></i>
+                    <span>Events</span>
+                </a>
+            </div>
+
+            <!-- Themes -->
+            <div class="nvx-nav-section">
+                <h4 class="nvx-nav-title">THEMES</h4>
+                <div class="theme-selector">
+                    <select id="themeSelector" class="form-select" onchange="applyTheme(this.value)">
+                        <option value="light">Light Theme</option>
+                        <option value="dark">Dark Theme</option>
+                        <option value="blue">Blue Ocean</option>
+                        <option value="green">Green Forest</option>
+                        <option value="purple">Purple Haze</option>
+                        <option value="neon">Neon Dreams</option>
+                    </select>
+                </div>
+                <div class="theme-preview">
+                    <div class="color-swatch" data-theme="light" onclick="applyTheme('light')"></div>
+                    <div class="color-swatch" data-theme="dark" onclick="applyTheme('dark')"></div>
+                    <div class="color-swatch" data-theme="blue" onclick="applyTheme('blue')"></div>
+                    <div class="color-swatch" data-theme="green" onclick="applyTheme('green')"></div>
+                    <div class="color-swatch" data-theme="purple" onclick="applyTheme('purple')"></div>
+                    <div class="color-swatch" data-theme="neon" onclick="applyTheme('neon')"></div>
+                </div>
+            </div>
+
+            <!-- User Section (when logged in) -->
+            <div class="nvx-nav-section" id="userNavSection" style="display: none;">
+                <h4 class="nvx-nav-title">MY ACCOUNT</h4>
+                <a href="#" class="nvx-nav-item" onclick="showProfile()" data-page="profile">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showSettings()" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="#" class="nvx-nav-item" onclick="showBookmarks()" data-page="bookmarks">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Bookmarks</span>
+                </a>
+                <a href="#" class="nvx-nav-item logout-item" onclick="logout()" data-page="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Sidebar Footer -->
+        <div class="nvx-sidebar-footer">
+            <div class="sidebar-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <div class="stat-value" id="onlineUsers">1,247</div>
+                        <div class="stat-label">Online</div>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-newspaper"></i>
+                    <div>
+                        <div class="stat-value" id="todayPosts">5.2K</div>
+                        <div class="stat-label">Posts Today</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-info">
+                <i class="fas fa-circle-info"></i>
+                <span id="lastUpdate">Updated: Just now</span>
+            </div>
+            <div class="sidebar-version">
+                <small>NEVOX v2.1 • © <span id="currentYear">2024</span></small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="nvx-main-content" id="mainContent">
+        <!-- Content Header -->
+        <div class="nvx-content-header">
+            <div class="content-title">
+                <h1 id="pageTitle">NEVOX Feed</h1>
+                <p id="pageDescription" class="text-muted">Latest updates from the community</p>
+            </div>
+            <div class="content-actions">
+                <button class="nvx-btn btn-outline-primary" onclick="refreshContent()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+                <button class="nvx-btn btn-outline-primary" onclick="toggleViewMode()">
+                    <i class="fas fa-th"></i> Grid View
+                </button>
+                <button class="nvx-btn btn-primary" onclick="showCreatePostModal()">
+                    <i class="fas fa-pen-to-square"></i> New Post
+                </button>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="nvx-content-area">
+            <!-- Feed Content -->
+            <div class="nvx-feed-container" id="feedContainer">
+                <!-- Posts will be loaded here -->
+                <div class="nvx-loader-container">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-3">Loading NEVOX Feed...</p>
+                    <small class="text-muted">Fetching latest content from the community</small>
+                </div>
+            </div>
+
+            <!-- Right Sidebar (Widgets) -->
+            <aside class="nvx-right-sidebar">
+                <!-- Weather Widget -->
+                <div class="nvx-widget weather-widget">
+                    <h5><i class="fas fa-sun"></i> Weather</h5>
+                    <div class="weather-info">
+                        <div class="weather-temp">28°C</div>
+                        <div class="weather-desc">Sunny</div>
+                        <div class="weather-location">Dhaka, BD</div>
+                    </div>
+                </div>
+
+                <!-- Trending Topics -->
+                <div class="nvx-widget trending-widget">
+                    <h5><i class="fas fa-fire"></i> Trending Topics</h5>
+                    <ul class="trending-list">
+                        <li><a href="#">#AIRevolution</a> <span class="trend-count">2.5K</span></li>
+                        <li><a href="#">#WebDevelopment</a> <span class="trend-count">1.8K</span></li>
+                        <li><a href="#">#NEVOXUpdates</a> <span class="trend-count">1.2K</span></li>
+                        <li><a href="#">#TechNews</a> <span class="trend-count">980</span></li>
+                        <li><a href="#">#OpenAI</a> <span class="trend-count">750</span></li>
+                    </ul>
+                </div>
+
+                <!-- Online Users -->
+                <div class="nvx-widget online-widget">
+                    <h5><i class="fas fa-user-clock"></i> Recently Online</h5>
+                    <div class="online-users">
+                        <!-- Users will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="nvx-widget stats-widget">
+                    <h5><i class="fas fa-chart-line"></i> Quick Stats</h5>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">45.2K</div>
+                                <div class="stat-label">Views</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-heart"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">12.8K</div>
+                                <div class="stat-label">Likes</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-comment"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">3.4K</div>
+                                <div class="stat-label">Comments</div>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon"><i class="fas fa-share"></i></div>
+                            <div class="stat-data">
+                                <div class="stat-value">1.2K</div>
+                                <div class="stat-label">Shares</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Floating Actions -->
+        <div class="nvx-floating-actions">
+            <button class="fab primary" onclick="showCreatePostModal()" title="Create Post">
+                <i class="fas fa-plus"></i>
+            </button>
+            <button class="fab secondary" onclick="openAIAssistant()" title="AI Assistant">
+                <i class="fas fa-robot"></i>
+            </button>
+            <button class="fab secondary" onclick="scrollToTop()" title="Scroll to Top">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- ==================== MODALS ==================== -->
+    
+    <!-- AI Assistant Modal -->
+    <div class="nvx-modal" id="aiModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-robot"></i> NEVOX AI Assistant</h5>
+                    <button type="button" class="btn-close" onclick="closeAIAssistant()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ai-chat-container">
+                        <div class="ai-message ai-response">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-text">Hello! I'm NEVOX AI Assistant. How can I help you today?</div>
+                                <div class="message-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ai-input-group">
+                        <input type="text" 
+                               class="form-control" 
+                               id="aiInput" 
+                               placeholder="Ask me anything..."
+                               aria-label="AI Input">
+                        <button class="btn btn-primary" onclick="sendAIMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="ai-suggestions">
+                        <small>Try asking:</small>
+                        <button class="btn btn-sm btn-outline-primary" onclick="askAI('How do I create a post?')">
+                            How to create a post
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" onclick="askAI('What is NEVOX?')">
+                            What is NEVOX
+                        </button>
+                        <button class="btn btn-sm btn-outline-primary" onclick="askAI('Tell me about AI features')">
+                            AI Features
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="nvx-modal" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-sign-in-alt"></i> Login to NEVOX</h5>
+                    <button type="button" class="btn-close" onclick="closeLoginModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" onsubmit="submitLogin(event)">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <small>Don't have an account? <a href="#" onclick="showSignupModal()">Sign up</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div class="nvx-modal" id="createPostModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-pen-to-square"></i> Create New Post</h5>
+                    <button type="button" class="btn-close" onclick="closeCreatePostModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="postForm" onsubmit="submitPost(event)">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="postTitle" placeholder="Title" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="postContent" rows="5" placeholder="What's on your mind?" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="postTags" placeholder="Add tags (comma separated)">
+                        </div>
+                        <div class="mb-3">
+                            <div class="file-upload-area" id="fileUploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop files or <a href="#" onclick="triggerFileUpload()">browse</a></p>
+                                <input type="file" id="fileInput" multiple style="display: none;">
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary flex-grow-1">Publish Post</button>
+                            <button type="button" class="btn btn-outline-secondary" onclick="closeCreatePostModal()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="nvx-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-logo">
+                        <i class="fas fa-bolt"></i> NEVOX
+                    </div>
+                    <p class="mt-3">The ultimate social ecosystem with AI-powered features and real-time interactions.</p>
+                    <div class="social-links mt-3">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="loadFeed('home')">Home</a></li>
+                        <li><a href="#" onclick="openAIAssistant()">AI Assistant</a></li>
+                        <li><a href="#" onclick="loadMedia('videos')">Videos</a></li>
+                        <li><a href="#" onclick="loadCommunity()">Community</a></li>
+                        <li><a href="#" onclick="showSettings()">Settings</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openDocumentation()">Documentation</a></li>
+                        <li><a href="#" onclick="openAPI()">API</a></li>
+                        <li><a href="#" onclick="openBlog()">Blog</a></li>
+                        <li><a href="#" onclick="openSupport()">Support</a></li>
+                        <li><a href="#" onclick="openStatus()">Status</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="openTerms()">Terms of Service</a></li>
+                        <li><a href="#" onclick="openPrivacy()">Privacy Policy</a></li>
+                        <li><a href="#" onclick="openCookies()">Cookie Policy</a></li>
+                        <li><a href="#" onclick="openGuidelines()">Community Guidelines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; <span id="currentYearFooter">2024</span> NEVOX Ecosystem. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-stats">
+                        <span class="stat-item">
+                            <i class="fas fa-users"></i> 
+                            <span id="totalUsersFooter">10,000+</span> Users
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-newspaper"></i> 
+                            <span id="totalPostsFooter">50K+</span> Posts
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-robot"></i> 
+                            <span id="aiInteractionsFooter">100K+</span> AI Interactions
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== CDN JAVASCRIPT ==================== -->
+    
+    <!-- Bootstrap 5.3 JS Bundle (Popper included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+            crossorigin="anonymous"></script>
+    
+    <!-- jQuery 3.7.1 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+            crossorigin="anonymous"></script>
+    
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Chart.js 4.4.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Highlight.js 11.8.0 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" 
+            integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q==" 
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Google Translate -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <!-- NEVOX AutoConfig System (Your CDN) -->
+    <script src="https://cdn.jsdelivr.net/gh/nevoxtheme/autoconfig@main/Auto.configure.js" defer></script>
+    
+    <!-- Local Script -->
+    <script src="script.js"></script>
+
+    <!-- ==================== INITIALIZATION ==================== -->
+    <script>
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            const year = new Date().getFullYear();
+            document.getElementById('currentYear').textContent = year;
+            document.getElementById('currentYearFooter').textContent = year;
+            
+            // Initialize AOS
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true
+                });
+            }
+            
+            // Initialize highlight.js
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightAll();
+            }
+            
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loadingScreen').style.display = 'none';
+                document.body.classList.remove('loading');
+            }, 1500);
+            
+            // Update stats
+            updateLiveStats();
+            
+            // Initialize Google Translate
+            googleTranslateElementInit();
+        });
+        
+        // Google Translate Initialization
+        function googleTranslateElementInit() {
+            try {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,es,fr,de,it,pt,ru,ja,ko,zh-CN,ar,hi,bn',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false
+                }, 'google_translate_element');
+            } catch (error) {
+                console.warn('Google Translate failed to load:', error);
+                // Fallback language selector
+                document.getElementById('google_translate_element').innerHTML = `
+                    <select class="form-select form-select-sm" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="bn">Bengali</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                    </select>
+                `;
+            }
+        }
+        
+        // Language change handler
+        function changeLanguage(lang) {
+            alert('Language changed to: ' + lang);
+            // Implement your language change logic here
+        }
+        
+        // Update live statistics
+        function updateLiveStats() {
+            // Simulate live updates
+            setInterval(() => {
+                // Online users
+                const online = Math.floor(Math.random() * 500) + 1200;
+                document.getElementById('onlineUsers').textContent = online.toLocaleString();
+                
+                // Today's posts
+                const posts = Math.floor(Math.random() * 200) + 5000;
+                document.getElementById('todayPosts').textContent = (posts / 1000).toFixed(1) + 'K';
+                
+                // Update last update time
+                const now = new Date();
+                document.getElementById('lastUpdate').textContent = 
+                    'Updated: ' + now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            }, 30000);
+            
+            // Update footer stats
+            setInterval(() => {
+                const stats = {
+                    users: Math.floor(Math.random() * 1000) + 10000,
+                    posts: Math.floor(Math.random() * 1000) + 50000,
+                    ai: Math.floor(Math.random() * 5000) + 100000
+                };
+                
+                document.getElementById('totalUsersFooter').textContent = 
+                    (stats.users / 1000).toFixed(0) + 'K+';
+                document.getElementById('totalPostsFooter').textContent = 
+                    (stats.posts / 1000).toFixed(0) + 'K+';
+                document.getElementById('aiInteractionsFooter').textContent = 
+                    (stats.ai / 1000).toFixed(0) + 'K+';
+            }, 60000);
+        }
+        
+        // Basic UI Functions
+        function toggleSidebar() {
+            const sidebar = document.getElementById('mainSidebar');
+            sidebar.classList.toggle('active');
+            document.body.classList.toggle('sidebar-open');
+        }
+        
+        function toggleTheme() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            const icon = document.getElementById('themeIcon');
+            icon.className = isDark ? 'fas fa-moon' : 'fas fa-sun';
+            
+            // Save to localStorage
+            localStorage.setItem('nevoxtheme', newTheme);
+        }
+        
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('nevoxtheme', theme);
+        }
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('nevoxtheme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        // Show loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('fade-out');
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
